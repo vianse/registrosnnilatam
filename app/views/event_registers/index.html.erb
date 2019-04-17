@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Event Registers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Firtsname</th>
+      <th>Lastname</th>
+      <th>Nickname</th>
+      <th>Email</th>
+      <th>Eventid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @event_registers.each do |event_register| %>
+      <tr>
+        <td><%= event_register.firtsName %></td>
+        <td><%= event_register.lastName %></td>
+        <td><%= event_register.nickName %></td>
+        <td><%= event_register.email %></td>
+        <td><%= event_register.eventId %></td>
+        <td><%= link_to 'Show', event_register %></td>
+        <td><%= link_to 'Edit', edit_event_register_path(event_register) %></td>
+        <td><%= link_to 'Destroy', event_register, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event Register', new_event_register_path %>

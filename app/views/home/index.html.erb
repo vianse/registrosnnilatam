@@ -1,0 +1,157 @@
+
+<!-- 
+*******
+     Event page
+     Version: 1.0
+     Date: 10/04/2019
+     Author: Vianse
+*****
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eventos NNI LATAM</title>
+    <link href="../../assets/stylesheets/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/locale/es.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+ 
+</head>
+<body>
+        <header>
+                <img src="https://firebasestorage.googleapis.com/v0/b/certificados-fe53d.appspot.com/o/logo.png?alt=media&token=81e90d97-f04c-4eae-bf96-54442c9b637f">
+                <div><%= @nickName %></div>
+        </header>        
+         <div class="container">
+                    <div class="row">
+                            <div class="col">
+                            </div>
+                            <div class="col-6">
+                                    <p class="subtitulos">Favor de elegir en que evento deseas registrar tu correo electronico</p>
+                            </div>
+                            <div class="col">
+                            </div>
+                          </div>
+                         <div class="row">
+                            <div class="col-12">
+                                  
+                                    <table>
+                                            <thead>
+                                              <tr>
+                                                <th></th>
+                                                <th colspan="3"></th>
+                                              </tr>
+                                            </thead>
+                                          
+                                            <tbody>
+                                              <% @events.each do |event| %>
+                                                <tr>
+                                                  <td><div class="nombreEvento"><%= event.name %></div>
+                                                    <% @registrado =  EventRegister.where(:eventId => event.id).where(:email => @email ).pluck(:id).first %>
+                                                </td>
+                                                  <% if @registrado.blank? %>
+                                                  <td>
+                                                    <a href="javascript:save('<%= @firstName %>', '<%= @lastName %>', '<%= @nickName %>','<%=  @email %>',<%=  event.id %>);"> Registrar </a>
+                                                </td>
+                                                  <% else %>
+                                                  <td class="boton"> <a href="<%= event.urlTolink %>" class="registrado"> Ya en Registro </a> </td>
+                                                  <% end %>
+                                                </tr>
+                                              <% end %>
+                                            </tbody>
+                                            
+                                          </table>
+                                          
+                            </div>
+                         </div>
+                         <div class="row">
+                                <div class="col-4"></div>
+                                <div class="col-4 paginate">
+                                        <%= paginate @events, theme: 'twitter-bootstrap-4' %>
+                                </div>
+                                <div class="col-4"></div>
+                        </div>
+                         <div class="row">
+                                <div class="col-12 botonback">
+                                    <a href='<%= Setting.all.pluck(:urlReditectionTokenEmpty).first %>' class="regresar"> Regresar </a>
+                                </div>
+                        </div>
+            </div>
+
+    </body>
+    <footer>
+            <div class="green">
+            </div>
+            <div class="subtitle">Sólo para Profesionales de la Salud</div>
+            <div class="institute">2019 Nestlé Nutrition Institute</div>
+            <nav class="db dt-l w-100 border-box pa4 ph5-l">
+        
+                <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+                    <a class="link dim white f6 f7-l dib mr3 mr3-l" href="https://www.nestlenutrition-institute.org/region/latam/general/aviso-de-privacidad" >Política de Privacidad</a>
+                    <a class="link dim white f6 f7-l dib mr3 mr3-l" href="https://www.nestlenutrition-institute.org/region/latam/general/politica-de-cookies" >Política de Cookies</a>
+                    <a class="link dim white f6 f7-l dib mr3 mr3-l" href="https://www.nestlenutrition-institute.org/region/latam/general/terminos-y-condiciones" >Términos y Condiciones</a>
+                    <a class="link dim white f6 f7-l dib mr3 mr3-l" href="mailto:soporte@nniacademy.com" >Contáctenos</a>
+        
+                </div>
+            </nav>
+            
+        
+        </footer>
+</html>
+
+
+<script>
+   function save(firstName, lastName, nickName, email, eventId){
+    swal ( "Registro" ,  "Registro con exito!" ,  "success" )
+    swal({
+        title: "Aviso",
+        text: "Al registrarse a estos eventos estás aceptando explicitamente tu concentimiento para la recepción de correos electronicos de NNI Latam a tu dirección de correo registrada acerca de estos eventos. ¿Aceptas?",
+        icon: "warning",
+        buttons: ["No", "Si"],
+        dangerMode: true,
+        })
+    .then((willDelete) => {
+    if (willDelete) {
+        swal("Gracias! te hemos registrado!", {
+        icon: "success",
+        });
+        postData(`/api/v1/registrar_evento`, {firstName: firstName, lastName: lastName, nickName: nickName, email:email, eventId: eventId})
+        .then(data => console.log(JSON.stringify(data))) // JSON-string from `response.json()` call
+        .catch(error => console.error(error));
+        setTimeout(function(){ window.location.href = "/" ; }, 2000);
+        
+    } else {
+    
+    }
+    });
+    
+   }
+
+
+function postData(url = ``, data = {}) {
+  // Default options are marked with *
+    return fetch(url, {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, cors, *same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json",
+            // "Content-Type": "application/x-www-form-urlencoded",
+        },
+        redirect: "follow", // manual, *follow, error
+        referrer: "no-referrer", // no-referrer, *client
+        body: JSON.stringify(data), // body data type must match "Content-Type" header
+       
+    })
+    .then(response => response.json()); // parses JSON response into native Javascript objects 
+    
+}
+  
+</script>

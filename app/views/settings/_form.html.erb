@@ -1,0 +1,42 @@
+<%= form_with(model: setting, local: true) do |form| %>
+  <% if setting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
+
+      <ul>
+      <% setting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :token %>
+    <%= form.text_field :token %>
+  </div>
+
+  <div class="field">
+    <%= form.label :urlEndPoint %>
+    <%= form.text_field :urlEndPoint %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apiKey %>
+    <%= form.text_field :apiKey %>
+  </div>
+
+  <div class="field">
+    <%= form.label :urlReditectionTokenEmpty %>
+    <%= form.text_field :urlReditectionTokenEmpty %>
+  </div>
+
+  <div class="field">
+    <%= form.label :urlRedirectionTokenError %>
+    <%= form.text_field :urlRedirectionTokenError %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

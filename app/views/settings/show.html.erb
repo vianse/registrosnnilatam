@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Token:</strong>
+  <%= @setting.token %>
+</p>
+
+<p>
+  <strong>Urlendpoint:</strong>
+  <%= @setting.urlEndPoint %>
+</p>
+
+<p>
+  <strong>Apikey:</strong>
+  <%= @setting.apiKey %>
+</p>
+
+<p>
+  <strong>Urlreditectiontokenempty:</strong>
+  <%= @setting.urlReditectionTokenEmpty %>
+</p>
+
+<p>
+  <strong>Urlredirectiontokenerror:</strong>
+  <%= @setting.urlRedirectionTokenError %>
+</p>
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>
