@@ -9,7 +9,7 @@ class Api::V1::GetEventosController <ApplicationController
             eventos = Event.where(:active => active)
               render json: eventos
         else
-            eventos = Event.where(:active => active).order('position DESC')
+            eventos = Event.where(:active => active).order(id: :asc, position: :asc)
               render json: eventos
            
         end

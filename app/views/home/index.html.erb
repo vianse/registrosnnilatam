@@ -26,7 +26,7 @@
 <body>
         <header>
                 <img src="https://firebasestorage.googleapis.com/v0/b/certificados-fe53d.appspot.com/o/logo.png?alt=media&token=81e90d97-f04c-4eae-bf96-54442c9b637f">
-                <div><%= @nickName %></div>
+                <div class="name"><%= @nickName %></div>
         </header>        
          <div class="container">
                     <div class="row">
@@ -57,7 +57,7 @@
                                                 </td>
                                                   <% if @registrado.blank? %>
                                                   <td>
-                                                    <a href="javascript:save('<%= @firstName %>', '<%= @lastName %>', '<%= @nickName %>','<%=  @email %>',<%=  event.id %>);"> Registrar </a>
+                                                    <a href="javascript:save('<%= @firstName %>', '<%= @lastName %>', '<%= @nickName %>','<%=  @email %>',<%=  event.id %>);"> Registrarme </a>
                                                 </td>
                                                   <% else %>
                                                   <td class="boton"> <a href="<%= event.urlTolink %>" class="registrado"> Ya en Registro </a> </td>
@@ -70,8 +70,8 @@
                                           
                             </div>
                          </div>
-                         <div class="row">
-                                <div class="col-4"></div>
+                         <div id="paginate" class="row">
+                                <div id="row1" class="col-4"></div>
                                 <div class="col-4 paginate">
                                         <%= paginate @events, theme: 'twitter-bootstrap-4' %>
                                 </div>

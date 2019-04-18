@@ -19,24 +19,19 @@ class HomeController < ApplicationController
      res =  RestClient.post "#{@endPoint}", {"ApiKey" => @ApiKey.to_s, "#{@parametro}" => params[:token], "Domain" => "registro.nnilatam.com"}.to_json, {content_type: :json, accept: :json}
         hash = JSON.parse res
         re = hash['Data']
-        firstName = JSON(re)['Email']
-        lastName = JSON(re)['Email']
-        nickName = JSON(re)['Email']
+        firstName = JSON(re)['FirstName']
+        lastName = JSON(re)['LastName']
+        nickName = JSON(re)['Nickname']
         email = JSON(re)['Email']
-        if res.nil?
-
-        # redirect_to @urlRedirectionTokenError
-         
-         
-        else
-         
+    
+      
           @firstName = firstName
           @lastName = lastName
           @nickName = nickName
           @email    = email
           @events = Event.order(:id).page params[:page]
           @events_registred = EventRegister.where(:email =>  @email).pluck(:id)
-        end
+        
   
         if (@events_registred.blank?) 
           @registrado = 0
@@ -45,7 +40,8 @@ class HomeController < ApplicationController
           @registrado = 1
         end
      rescue => e
-        puts "failed #{e}"
+        redirect_to  @urlRedirectionTokenError
+        #puts "failed #{e}"
      end
    end
   end
