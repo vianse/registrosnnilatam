@@ -1,0 +1,79 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300|Raleway:200,900|Over+the+Rainbow' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.3.1/velocity.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+<script>
+    $('.hamb-wrap').on('click', function(){
+      $(this).parent().children('p').toggle();
+      $(this).children().toggleClass('active');
+      $('nav').fadeToggle(200);
+    }) 
+</script>
+<header>
+<div class="hero">
+    <article class="pa3 pa5-ns">
+        <h1 class="f4 bold center mw6">Menú</h1>
+        <ul class="list pl0 ml0 center mw6 ba b--light-silver br2">
+          <li class="ph3 pv3 bb b--light-silver"><a href="/events">Eventos</a></li>
+          <li class="ph3 pv3 bb b--light-silver"><a href="/admins">Administradores</a></li>
+          <li class="ph3 pv3 bb b--light-silver"><a href="/reports_event">Reportes</a></li>
+          <li class="ph3 pv3 bb b--light-silver"><a href="/settings">Configuración</a>
+          <% if admin_signed_in? %>
+          <li class="ph3 pv3 bb b--light-silver">
+            <%= link_to('Salir', destroy_admin_session_path, method: :delete) %>        
+            </li>
+          <% end %>
+      </ul>
+      </article>
+  </div>
+  
+</header>
+<section class="content">
+  <h1>Administradores</h1>
+  <div class="ph1">
+
+    <%= link_to 'Regresar', admins_path, :class=>"f6 link dim br2 ph3 pv2 mb2 dib white bg-green" %>
+    </div>
+
+  <div class="pa2">
+    <div class="overflow-auto">
+  
+    <%= form_for(@user) do |f| %>
+        <!--   <%# if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%#= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+              <ul>
+              <%# @user.errors.full_messages.each do |message| %>
+                <li><%#= message %></li>
+              <%# end %>
+              </ul>
+            </div>
+          <%# end %> -->
+        
+        <!-- this needs to be set to a radio button -->
+          <div class="field">
+            <%= f.label :email %><br>
+            <%= f.text_field :email %>
+          </div>
+          <div class="field">
+            <%= f.label :password %><br>
+            <%= f.text_field :password %>
+          </div>
+        
+          <div class="actions">
+            <%= f.submit "Actualizar" %>
+          </div>
+    <% end %>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+

@@ -7,6 +7,29 @@ class EventRegistersController < ApplicationController
     @event_registers = EventRegister.all
   end
 
+  def reports_all
+    @event_registers = EventRegister.all
+  end
+  def reports_event
+    
+    if params[:evento]
+      @registers_events = EventRegister.where(:eventId => params[:evento])
+     
+      respond_to do |format|
+        format.html
+        format.xlsx
+      end
+    else
+      @registers_events = EventRegister.all
+   
+      respond_to do |format|
+        format.html
+        format.xlsx
+      end
+    end
+  
+  end
+
   # GET /event_registers/1
   # GET /event_registers/1.json
   def show

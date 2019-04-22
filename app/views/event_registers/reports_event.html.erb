@@ -1,0 +1,76 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300|Raleway:200,900|Over+the+Rainbow' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.3.1/velocity.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+<script>
+    $('.hamb-wrap').on('click', function(){
+      $(this).parent().children('p').toggle();
+      $(this).children().toggleClass('active');
+      $('nav').fadeToggle(200);
+    }) 
+</script>
+<header>
+<div class="hero">
+    <article class="pa3 pa5-ns">
+        <h1 class="f4 bold center mw6">Menú</h1>
+        <ul class="list pl0 ml0 center mw6 ba b--light-silver br2">
+          <li class="ph3 pv3 bb b--light-silver"><a href="/events">Eventos</a></li>
+          <li class="ph3 pv3 bb b--light-silver"><a href="/admins">Administradores</a></li>
+          <li class="ph3 pv3 bb b--light-silver"><a href="/reports_event">Reportes</a></li>
+          <li class="ph3 pv3 bb b--light-silver"><a href="/settings">Configuración</a>
+          <% if admin_signed_in? %>
+          <li class="ph3 pv3 bb b--light-silver">
+            <%= link_to('Salir', destroy_admin_session_path, method: :delete) %>        
+            </li>
+          <% end %>
+      </ul>
+      </article>
+  </div>
+  
+</header>
+<section class="content">
+  <h1>Reportes</h1>
+  <div class="ph1">
+  <%= link_to "Exportar a Excel", reports_event_path(format: "xlsx", :evento => params[:evento]), :class=>"f6 link dim br2 ph3 pv2 mb2 dib white bg-green" %>
+  <%= link_to "Exportar todos los usuarios registrados", reports_event_path(format: "xlsx"), :class=>"f6 link dim br2 ph3 pv2 mb2 dib white bg-green" %>
+  </div>
+  <p>
+</p>
+  <%= form_tag reports_event_path, method: :get do %>
+    <div class="form-group">
+      <%= text_field_tag :evento, nil,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100", placeholder: "Número de evento" %>
+    </div>
+    <%= submit_tag "Buscar", name: nil, :class=>"f6 link dim br2 ph3 pv2 mb2 dib white bg-green" %>
+  <% end %>
+  
+  <div class="pa2">
+    <div class="overflow-auto">
+    <table class="f6 w-100 mw8 center">
+    <thead>
+      <tr>
+        <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Nombre</th>
+        <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Apellido</th>
+        <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Nombre Completo</th>
+        <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Correo</th>
+        <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">ID Evento</th>
+       
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @registers_events.each do |event_register| %>
+      <tr>
+        <td><%= event_register.firtsName %></td>
+        <td><%= event_register.lastName %></td>
+        <td><%= event_register.nickName %></td>
+        <td><%= event_register.email %></td>
+        <td><%= event_register.eventId %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+    </div>
+  </div>
+</section>

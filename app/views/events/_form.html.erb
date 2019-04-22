@@ -1,4 +1,8 @@
-<%= form_with(model: event, local: true) do |form| %>
+
+<article class="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
+<h1>Eventos</h1>
+ <div class="tc">
+ <%= form_with(model: event, local: true) do |form| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -12,41 +16,43 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name ,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100", :placeholder => "Nombre del evento" %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+  
+    <%= form.text_field :description ,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" , :placeholder => "Descripción del evento"%>
   </div>
 
   <div class="field">
-    <%= form.label :message %>
-    <%= form.text_field :message %>
+
+    <%= form.text_field :message,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100", :placeholder => "Mensaje" %>
   </div>
 
   <div class="field">
-    <%= form.label :urlTolink %>
-    <%= form.text_field :urlTolink %>
+   
+    <%= form.text_field :urlTolink,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100", :placeholder => "Url de redireccionamiento" %>
   </div>
 
   <div class="field">
-    <%= form.label :active %>
-    <%= form.text_field :active %>
+ 
+    <%= form.text_field :active,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" , :placeholder => "Estatus del evento"%>
   </div>
 
   <div class="field">
-    <%= form.label :position %>
-    <%= form.text_field :position %>
+  
+    <%= form.text_field :position,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100", :placeholder => "Posición del evento" %>
   </div>
 
   <div class="field">
-    <%= form.label :userID %>
-    <%= form.text_field :userID %>
+    <%= form.hidden_field :userID,:value => current_admin.id %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar" , :class=>"f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-dark-green" %>
   </div>
 <% end %>
+ </div>
+</article>
+
+
