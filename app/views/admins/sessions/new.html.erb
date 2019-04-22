@@ -1,21 +1,32 @@
-<h2>Log in</h2>
 
+<article class="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
+<h2>Log in</h2>
+ <div class="tc">
+ 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
   </div>
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password" ,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
   </div>
 
  
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in" , :class=>"f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-dark-green" %>
   </div>
 <% end %>
+ </div>
+</article>
+
+
+
+
+
+
 
 
