@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/reports_all', to: 'event_registers#reports_all'
   get '/reports_event', to: 'event_registers#reports_event'
+  get '/thankyou', to: 'home#thankyou'
   devise_scope :admins do
     get "admin/new" => "devise/sessions#new"
   end

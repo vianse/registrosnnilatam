@@ -40,6 +40,7 @@
       <table class="f6 w-100 mw8 center">
         <thead>
           <tr>
+            <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Evento ID</th>
             <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Nombre Evento</th>
             <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Descripción del Evento</th>
             <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Mensaje</th>
@@ -53,6 +54,7 @@
         <tbody>
           <% @events.each do |event| %>
             <tr>
+              <td><%= event.id %></td>
               <td><%= event.name %></td>
               <td><%= event.description %></td>
               <td><%= event.message %></td>

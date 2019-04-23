@@ -2,10 +2,10 @@ wb = xlsx_package.workbook
 
 wb.add_worksheet(name: "Usuarios_Registrados") do |sheet|
   # this is the head row of your spreadsheet
-  sheet.add_row %w(id Nombre Apellido NombreCompleto Email Evento_ID)
+  sheet.add_row %w(id Nombre Apellido NombreCompleto Email Evento_ID, Fecha_creación)
   
   # each user is a row on your spreadsheet
   @registers_events.each do |user|
-    sheet.add_row [user.id, user.firtsName, user.lastName, user.nickName, user.email, user.eventId]
+    sheet.add_row [user.id, user.firtsName, user.lastName, user.nickName, user.email, user.eventId, user.created_at.strftime("%d/%m/%Y")]
   end
 end

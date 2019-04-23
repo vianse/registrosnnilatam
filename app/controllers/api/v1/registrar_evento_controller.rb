@@ -7,6 +7,7 @@ class Api::V1::RegistrarEventoController <ApplicationController
         nickName = params[:nickName]
         email = params[:email]
         eventId = params[:eventId]
+        country = params[:country]
 
         if (params[:email].blank?)
             render json: {:message => "Se encontro un erro en algun parametro, favor de revisar la petición"}
@@ -16,7 +17,8 @@ class Api::V1::RegistrarEventoController <ApplicationController
                 :lastName => lastName,
                 :nickName => nickName,
                 :email => email,
-                :eventId => eventId
+                :eventId => eventId,
+                :country => country
              })
 
               render json: {:message => "Registro creado satisfactoriamente"}

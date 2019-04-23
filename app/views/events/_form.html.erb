@@ -16,32 +16,39 @@
   <% end %>
 
   <div class="field">
-    <%= form.text_field :name ,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100", :placeholder => "Nombre del evento" %>
+   <p> Nombre del evento </p>
+    <%= form.text_field :name ,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
   </div>
 
   <div class="field">
-  
-    <%= form.text_field :description ,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" , :placeholder => "Descripción del evento"%>
+  <p> Descripción del evento </p>
+    <%= form.text_field :description ,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
   </div>
 
   <div class="field">
-
-    <%= form.text_field :message,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100", :placeholder => "Mensaje" %>
+    <p> Mensaje </p>
+    <%= form.text_field :message,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
   </div>
 
   <div class="field">
+  <p> Url de redireccionamiento </p>
+    <%= form.text_field :urlTolink,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+
+  <div class="field">
+   <p> Estatus del evento </p>
    
-    <%= form.text_field :urlTolink,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100", :placeholder => "Url de redireccionamiento" %>
+    <select class="input-reset ba b--black-20 pa2 mb2 db w-100" name="event[active]">
+    <option value="">Please select</option>
+    <option value="1" selected="selected">Activo</option>
+    <option value="0">No activo</option>
+   
+  </select>
   </div>
 
   <div class="field">
- 
-    <%= form.text_field :active,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" , :placeholder => "Estatus del evento"%>
-  </div>
-
-  <div class="field">
-  
-    <%= form.text_field :position,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100", :placeholder => "Posición del evento" %>
+  <p> Posición del evento </p>
+    <%= form.text_field :position,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
   </div>
 
   <div class="field">
@@ -50,6 +57,7 @@
 
   <div class="actions">
     <%= form.submit "Guardar" , :class=>"f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-dark-green" %>
+    <a href="/events" style="color: white" class="f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-dark-red">Cancelar</a>
   </div>
 <% end %>
  </div>

@@ -23,13 +23,15 @@ class HomeController < ApplicationController
         lastName = JSON(re)['LastName']
         nickName = JSON(re)['Nickname']
         email = JSON(re)['Email']
+        country = JSON(re)['Country']
     
       
           @firstName = firstName
           @lastName = lastName
           @nickName = nickName
           @email    = email
-          @events = Event.order(:id).page params[:page]
+          @country  = country
+          @events = Event.order(:position).page params[:page]
           @events_registred = EventRegister.where(:email =>  @email).pluck(:id)
         
   
@@ -46,5 +48,5 @@ class HomeController < ApplicationController
    end
   end
   
-
+  
 end

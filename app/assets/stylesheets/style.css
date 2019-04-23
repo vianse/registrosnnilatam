@@ -68,7 +68,7 @@ html, body {
 	float: none;
  }
  .botonback{
-    margin-top: 5%;
+    margin-top: 1%;
    text-align: center;
     margin-left: auto;
 	margin-right: auto;
@@ -500,6 +500,9 @@ footer>nav{
     margin-left: 40%;
     
     overflow: hidden;
+  }
+  h6,p{
+    margin-bottom: 0!important;
   }
   
   @media (max-width: 768px) {

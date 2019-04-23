@@ -1,4 +1,5 @@
 class EventRegistersController < ApplicationController
+  
   before_action :set_event_register, only: [:show, :edit, :update, :destroy]
 
   # GET /event_registers
