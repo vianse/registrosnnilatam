@@ -1,7 +1,7 @@
 class EventRegistersController < ApplicationController
-  
+  before_action :authenticate_admin!
   before_action :set_event_register, only: [:show, :edit, :update, :destroy]
-
+ 
   # GET /event_registers
   # GET /event_registers.json
   def index

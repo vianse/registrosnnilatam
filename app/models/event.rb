@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
     require 'csv'
-    paginates_per 5
+    paginates_per 10
     
 end
