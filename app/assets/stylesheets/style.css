@@ -5,7 +5,9 @@ html {
     min-height: 100vh!important;
   }
 
-
+  .measure {
+    max-width: 60em!important;
+}
   #page-container {
     position: relative;
     min-height: 100vh;
