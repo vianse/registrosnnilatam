@@ -26,14 +26,11 @@ html {
       font-size: 14;
   }
   .d{
-    font-family: Arial, Helvetica, sans-serif;
+      font-family: Arial;
       color:#808080;
       font-size: 12;
   }
-  .span4{
-      position: absolute;
-      top: 25%;
-  }
+
   #footer {
     position: absolute;
     bottom: 0!important;
@@ -65,7 +62,7 @@ footer>.institute{
     color:white;
     font-size:14px;
     position:absolute;
-    top:50%;
+    top:45%;
     left: 2%;
 }
 footer>nav{
@@ -73,10 +70,62 @@ footer>nav{
    
     color:white;
     position:absolute;
-    top:30%;
+    top:35%;
     
    
 }
+
+.span4{
+  
+    margin-left: 25%;
+    margin-right: 25%;
+
+}
+.user {
+    text-decoration:none!important;
+    color: black;
+
+}
+.user:hover {
+    color: black;
+}
+
+@media (max-width: 480px) {
+    #footer {
+        position: absolute;
+        bottom: 0!important;
+        width: 100%;
+        height:270px; 
+        background-color:#064189;
+      
+                 /* Footer height */
+      } 
+      footer>.subtitle{
+        text-align: center;
+    }
+    footer>.institute{
+        text-align: center;
+    }
+    .span3{
+        margin-bottom: 350px!important;
+    }
+    .span4{
+        margin-bottom: 200px!important;
+       
+        margin: 5%;
+    
+    }
+    footer>nav{
+   
+   
+        color:white;
+        position:absolute;
+        top:45%;
+        
+       
+    }
+    
+  }
 
 .alerta{
     margin-top: 5%;

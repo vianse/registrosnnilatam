@@ -20,30 +20,30 @@
 
         <a class="db dtc-l   w-100 w-25-l tc tl-l mb2 mb0-l" href="#" >
         <img src="https://firebasestorage.googleapis.com/v0/b/certificados-fe53d.appspot.com/o/Logo_NNI_sistemas.png?alt=media&token=4bf7e8f2-2602-4a05-b5b6-050882982791">
-        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
-        <a style="font-size:16px; display:block!important" href="#"><%= params[:nickname] %></a>
-    </div>
+        <div class="db dtc-l  w-100 w-75-l tc tr-l">
+        <a  href="#" class="user"><%= params[:nickname] %></a>
+         </div>
         </a>
 
        
         </nav>
-   <div id="content-wrap "  style="margin-top:10%;">
+   <div id="content-wrap">
      <!-- all other page content -->
-     <div class="row" ;>
+     <div class="row">
                             <div class="col">
                             
                             </div>
                             <div class="col-6" >
-                            <h3 style="text-align: center; margin-bottom: 50px; font-family:arial; font-size:24pt;" >Eventos NNI Latam</h3>
+                            <h3 style="text-align: center; margin-bottom: 30px; font-family:arial; font-size:24px; color:#4d4d4d;" >Eventos NNI Latam</h3>
                         
                             </div>
                             <div class="col">
                             </div>
                           </div>
-                         <div class="row">
+                         <div class="row" style="margin-bottom:200px!important";>
                             <div class="col-12">
                                   
-                                    <div class=" pagination justify-content-center font-family:arial; font-size:18pt;" >
+                                    <div class="span4 pagination justify-content-center font-family:arial; font-size:18px; color:#4d4d4d; " >
                                     <%= Event.where(:id => params[:event]).pluck(:message).first %>
                                     </div>
                                   
