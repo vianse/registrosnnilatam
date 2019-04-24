@@ -31,8 +31,8 @@ class HomeController < ApplicationController
           @nickName = nickName
           @email    = email
           @country  = country
-         # @events = Event.where(:active => 1).order(:position).page params[:page]
-          @events = Event.order(:position).page params[:page]
+          @events = Event.where(:active => 1).order(:position).page params[:page]
+         # @events = Event.order(:position).page params[:page]
           @events_registred = EventRegister.where(:email =>  @email).pluck(:id)
         
   
