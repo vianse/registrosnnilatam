@@ -24,13 +24,16 @@ html {
     font-family: Arial, Helvetica, sans-serif;
       color:#4d4d4d;
       font-size: 14;
-      padding-right: 20px;
+      padding-right: 2%;
   }
   .d{
       font-family: Arial;
       color:#808080;
       font-size: 12;
-      padding-right: 20px;
+      padding-right: 2%;
+  }
+  .botones{
+    padding-left: 2%;
   }
 
   #footer {

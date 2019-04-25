@@ -49,7 +49,7 @@
                                                 <span class="f8 db black-30 d"><%= event.description %></span>
                                                 <% @registrado =  EventRegister.where(:eventId => event.id).where(:email => @email ).pluck(:id).first %>
                                             </div>
-                                            <div>
+                                            <div class="botones">
                                                 <% if @registrado.blank? %>
                                                 <a href="javascript:save('<%= @firstName %>', '<%= @lastName %>', '<%= @nickName %>','<%=  @email %>',<%=  event.id %>,'<%=  @country %>');" class="registrar"> Registrarme </a>
                                                 <% else %>
