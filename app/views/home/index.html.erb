@@ -44,12 +44,12 @@
                                     <ul class="list pl0 mt0 measure center">
                                               <% @events.each do |event| %>
                                             <li class="flex items-center lh-copy pa3 ph0-l bb b--black-10">  
-                                            <div class="pl3 flex-auto">
+                                            <div class="pl3 flex-auto" style="width:90%!important;">
                                                 <span class="f6 db black-70 n"><%= event.name %></span>
                                                 <span class="f8 db black-30 d"><%= event.description %></span>
                                                 <% @registrado =  EventRegister.where(:eventId => event.id).where(:email => @email ).pluck(:id).first %>
                                             </div>
-                                            <div class="botones">
+                                            <div class="botones"  style="width:10%!important;">
                                                 <% if @registrado.blank? %>
                                                 <a href="javascript:save('<%= @firstName %>', '<%= @lastName %>', '<%= @nickName %>','<%=  @email %>',<%=  event.id %>,'<%=  @country %>');" class="registrar"> Registrarme </a>
                                                 <% else %>
