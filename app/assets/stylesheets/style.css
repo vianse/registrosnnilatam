@@ -28,7 +28,7 @@ html {
   }
   .d{
       font-family: Arial;
-      color:#808080;
+      color:#808080!important;
       font-size: 12;
       padding-right: 2%;
   }
