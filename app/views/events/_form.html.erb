@@ -52,9 +52,16 @@
   </div>
 
   <div class="field">
+  <p> Código Head Página Eventos </p>
+    <%= form.text_field :headOne,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+  <div class="field">
+  <p> Código Body Página Eventos </p>
+    <%= form.text_field :bodyOne,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+  <div class="field">
     <%= form.hidden_field :userID,:value => current_admin.id %>
   </div>
-
   <div class="actions">
     <%= form.submit "Guardar" , :class=>"f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-dark-green" %>
     <a href="/events" style="color: white" class="f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-dark-red">Cancelar</a>

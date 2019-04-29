@@ -1,3 +1,10 @@
+
+<article class="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
+<h1>Configuración</h1>
+ <div class="tc">
+
+
+
 <%= form_with(model: setting, local: true) do |form| %>
   <% if setting.errors.any? %>
     <div id="error_explanation">
@@ -13,30 +20,49 @@
 
   <div class="field">
     <%= form.label :token %>
-    <%= form.text_field :token %>
+    <%= form.text_field :token ,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
   </div>
 
   <div class="field">
     <%= form.label :urlEndPoint %>
-    <%= form.text_field :urlEndPoint %>
+    <%= form.text_field :urlEndPoint,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
   </div>
 
   <div class="field">
     <%= form.label :apiKey %>
-    <%= form.text_field :apiKey %>
+    <%= form.text_field :apiKey,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
   </div>
 
   <div class="field">
     <%= form.label :urlReditectionTokenEmpty %>
-    <%= form.text_field :urlReditectionTokenEmpty %>
+    <%= form.text_field :urlReditectionTokenEmpty,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
   </div>
 
   <div class="field">
     <%= form.label :urlRedirectionTokenError %>
-    <%= form.text_field :urlRedirectionTokenError %>
+    <%= form.text_field :urlRedirectionTokenError,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Pixel Código Head" %>
+    <%= form.text_field :head,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Pixel Código Body" %>
+    <%= form.text_field :body,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.submit "Guardar", :class=>"f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-dark-green" %>
+    <a href="/settings" style="color: white" class="f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-dark-red">Cancelar</a>
+    </div>
 <% end %>
+
+
+
+ </div>
+</article>
+
+
+

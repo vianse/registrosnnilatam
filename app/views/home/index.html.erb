@@ -11,9 +11,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/locale/es.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
-   
+     <%= @head.try(:html_safe) %>
 </head>
 <body>
+<%= @body.try(:html_safe) %>
 <div id="page-container">
         <nav class="db dt-l w-100 border-box pa3 ph5-l">
         <a class="db dtc-l   w-100 w-25-l tc tl-l mb2 mb0-l" href="#" >

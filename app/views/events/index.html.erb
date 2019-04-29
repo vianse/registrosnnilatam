@@ -47,6 +47,8 @@
             <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Url botón registrar</th>
             <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Estatus</th>
             <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Posición</th>
+            <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Pixel Código Head</th>
+            <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Pixel Código Body</th>
             <th colspan="3"></th>
           </tr>
         </thead>
@@ -61,6 +63,8 @@
               <td><%= event.urlTolink %></td>
               <td><%= event.active %></td>
               <td><%= event.position %></td>
+              <td><%= event.headOne %></td>
+              <td><%= event.bodyOne %></td>
               <td><%= link_to 'Editar', edit_event_path(event) %></td>
               <td><%= link_to 'Eliminar', event, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
             </tr>

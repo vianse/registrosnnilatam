@@ -1,11 +1,13 @@
 class HomeController < ApplicationController
   def index
-    
-    
     require 'uri'
     require 'net/http'
     require 'rest_client'
     require 'json'
+    @head = Setting.all.pluck(:head).first
+    @body = Setting.all.pluck(:body).first
+   
+   
     if params[:token].blank? 
       @url = Setting.all.pluck(:urlReditectionTokenEmpty).first
       redirect_to @url
@@ -47,6 +49,12 @@ class HomeController < ApplicationController
         #puts "failed #{e}"
      end
    end
+  end
+
+
+  def thankyou
+    @headEvento =  Event.where(:id => params[:event]).pluck(:headOne).first
+    @bodyEvento = Event.where(:id => params[:event]).pluck(:bodyOne).first
   end
   
   

@@ -49,6 +49,8 @@
       <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Apikey</th>
       <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Url redirección token vacío</th>
       <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Url redirección token error</th>
+      <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Pixel Código Head</th>
+      <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Pixel Código Body</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -61,6 +63,8 @@
         <td><%= setting.apiKey %></td>
         <td><%= setting.urlReditectionTokenEmpty %></td>
         <td><%= setting.urlRedirectionTokenError %></td>
+        <td><%= setting.head %></td>
+        <td><%= setting.body %></td>
         <td><%= link_to 'Editar', edit_setting_path(setting) %></td>
         <td><%= link_to 'Eliminar', setting, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
       </tr>

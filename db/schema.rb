@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_23_022145) do
+ActiveRecord::Schema.define(version: 2019_04_26_183028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,10 @@ ActiveRecord::Schema.define(version: 2019_04_23_022145) do
     t.string "userID"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "headOne"
+    t.string "bodyOne"
+    t.string "headTwo"
+    t.string "bodyTwo"
   end
 
   create_table "seetings", force: :cascade do |t|
@@ -78,6 +82,8 @@ ActiveRecord::Schema.define(version: 2019_04_23_022145) do
     t.string "urlRedirectionTokenError"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "head"
+    t.string "body"
   end
 
 end
