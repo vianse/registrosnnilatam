@@ -75,6 +75,7 @@
         <td><%= event_register.eventId %></td>
         <td><%= event_register.country %></td>
         <td><%= event_register.created_at.strftime("%d/%m/%Y")%></td>
+        <td><%= link_to 'Eliminar', event_register, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
     </tbody>

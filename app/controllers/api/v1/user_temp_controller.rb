@@ -14,7 +14,7 @@ def index
         }
         
     else
-        render json: { "mensaje" => "Usuario no valida"
+        render json: { "mensaje" => "Usuario no valido"
         }
     end
 end

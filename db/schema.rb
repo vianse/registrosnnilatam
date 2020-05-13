@@ -27,16 +27,6 @@ ActiveRecord::Schema.define(version: 2019_04_26_183028) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "configurations", force: :cascade do |t|
-    t.string "token"
-    t.string "urlEndPoint"
-    t.string "apiKey"
-    t.string "urlReditectionTokenEmpty"
-    t.string "urlRedirectionTokenError"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "event_registers", force: :cascade do |t|
     t.string "firtsName"
     t.string "lastName"
@@ -62,16 +52,6 @@ ActiveRecord::Schema.define(version: 2019_04_26_183028) do
     t.string "bodyOne"
     t.string "headTwo"
     t.string "bodyTwo"
-  end
-
-  create_table "seetings", force: :cascade do |t|
-    t.string "token"
-    t.string "urlEndPoint"
-    t.string "apiKey"
-    t.string "urlReditectionTokenEmpty"
-    t.string "urlRedirectionTokenError"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "settings", force: :cascade do |t|
