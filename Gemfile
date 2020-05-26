@@ -1,5 +1,7 @@
-source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
 
 ruby '2.6.5'
 
@@ -18,7 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 gem 'devise'
-gem 'wdm', '>= 0.1.0'
+#gem 'wdm', '>= 0.1.0'
 
 gem 'axlsx', '= 2.0.1'
 gem 'axlsx_rails'
