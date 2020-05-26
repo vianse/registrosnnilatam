@@ -40,13 +40,13 @@ development:
 
 pruebas:
   <<: *default
-  host: ec2-54-88-130-244.compute-1.amazonaws.com
-  database: d69cq3tasimtdn
+  host: ec2-52-44-55-63.compute-1.amazonaws.com
+  database: d7c338i75m46t
       #username: RD_Certificados
       #password: <%= ENV['RD_CERTIFICADOS_DATABASE_PASSWORD'] %>
-  username: vattpqclnybbwn
+  username: ltcptxpfbuconn
   port: 5432
-  password: eec1121612e376381640309d595f184b174fde8ef715065498eb79356063ffc9
+  password: 8bf2fe2e4d578507dce6b30bca419da004366e074d6cc3d2a1bc0b6197dad139
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
