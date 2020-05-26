@@ -1,5 +1,6 @@
 class Api::V1::UserTempController <ApplicationController
-def index
+    skip_before_action :verify_authenticity_token
+def create
     #parametro = Setting.select(:token,:urlEndPoint).all
     
     #render json: parametro
@@ -14,8 +15,7 @@ def index
         }
         
     else
-        render json: { "mensaje" => "Usuario no valido"
-        }
+        render json: { "mensaje" => "Usuario no valido"}
     end
 end
 end

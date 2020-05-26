@@ -18,7 +18,8 @@ class HomeController < ApplicationController
       @urlRedirectionTokenError = Setting.all.pluck(:urlRedirectionTokenError).first
      begin
 
-     res =  RestClient.post "#{@endPoint}", {"ApiKey" => @ApiKey.to_s, "#{@parametro}" => params[:token], "Domain" => "registro.nnilatam.com"}.to_json, {content_type: :json, accept: :json}
+    # res =  RestClient.post "#{@endPoint}", {"ApiKey" => @ApiKey.to_s, "#{@parametro}" => params[:token], "Domain" => "registro.nnilatam.com"}.to_json, {content_type: :json, accept: :json}
+    res =  RestClient.post "#{@endPoint}", {"token" => params[:token]}.to_json, {content_type: :json, accept: :json}
         hash = JSON.parse res
         re = hash['Data']
         firstName = JSON(re)['FirstName']
