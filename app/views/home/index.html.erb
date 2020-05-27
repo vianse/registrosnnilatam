@@ -32,7 +32,7 @@
                             </div>
                             <div class="col-6">
                             <h3 style="text-align: center; margin-bottom: 50px;">Eventos NNI Latam</h3>
-                                    <p class="subtitulos" style="text-align: center; margin-bottom: 30px!important;">Favor de elegir en que evento deseas registrar su correo electrónico</p>
+                                    <p class="subtitulos" style="text-align: center; margin-bottom: 30px!important;">Favor de elegir en que evento desea registrar su correo electrónico</p>
                             </div>
                             <div class="col">
                             </div>
@@ -53,7 +53,7 @@
                                                 <% if @registrado.blank? %>
                                                 <a href="javascript:save('<%= @firstName %>', '<%= @lastName %>', '<%= @nickName %>','<%=  @email %>',<%=  event.id %>,'<%=  @country %>');" class="registrar"> Registrarme </a>
                                                 <% else %>
-                                                 <a href="<%= event.urlTolink %>" class="registrado">Registrado </a> 
+                                                 <a href="<%= event.urlTolink %>" class="registrado"><%=  event.boton_texto %> </a> 
                                                 <% end %>
                                             </div>
                                        </li>

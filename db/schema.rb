@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_26_183028) do
+ActiveRecord::Schema.define(version: 2020_05_27_023642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_04_26_183028) do
     t.string "bodyOne"
     t.string "headTwo"
     t.string "bodyTwo"
+    t.string "boton_texto"
   end
 
   create_table "settings", force: :cascade do |t|
