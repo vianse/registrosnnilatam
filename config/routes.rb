@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get '/reports_event', to: 'event_registers#reports_event'
   get '/thankyou', to: 'home#thankyou'
    devise_scope :admins do
-     get "admins/sign_in" => "devise/sessions#new"
-     post "admins/sign_in" => "devise/sessions#create"
+     get "admins/new" => "devise/sessions#new"
+    
      
    end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
