@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   get '/reports_all', to: 'event_registers#reports_all'
   get '/reports_event', to: 'event_registers#reports_event'
   get '/thankyou', to: 'home#thankyou'
-  devise_scope :admins do
-    get "admin/new" => "devise/sessions#new"
-  end
+   devise_scope :admins do
+     get "admins/sign_in" => "devise/sessions#new"
+     post "admins/sign_in" => "devise/sessions#create"
+     
+   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do
     namespace :v1 do
