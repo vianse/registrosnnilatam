@@ -11,7 +11,7 @@
                 </div>
                 <div class="field">
                 <%= label_tag :password %><br>
-                <%= text_field_tag :password ,nil ,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" :type => "password" %>
+                <%= password_field_tag :password ,nil ,:class=> "input-reset ba b--black-20 pa2 mb2 db w-100" %>
             </div>
             <div><a href="javascript:postData('/api/v1/create_admin')" class="f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-dark-green" >Crear</a></div>
         <% end %>
