@@ -104,9 +104,9 @@ test:
 
 
 
-# production:
-#   <<: *default
-#   host: ec2-54-243-241-62.compute-1.amazonaws.com
-#   database: d73u3jnhcm9f24
-#   username: ougdctrzismaei
-#   password: ff6f178d594f11dd4301be8acff632a0225d905141e98e514e5d1918840d4d87
+production:
+  <<: *default
+  host: ec2-54-243-241-62.compute-1.amazonaws.com
+  database: d73u3jnhcm9f24
+  username: ougdctrzismaei
+  password: ff6f178d594f11dd4301be8acff632a0225d905141e98e514e5d1918840d4d87
