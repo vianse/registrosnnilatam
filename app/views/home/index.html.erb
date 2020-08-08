@@ -32,7 +32,9 @@
                             </div>
                             <div class="col-6">
                             <h3 style="text-align: center; margin-bottom: 50px;">Eventos NNI Latam</h3>
-                                    <p class="subtitulos" style="text-align: center; margin-bottom: 30px!important;">Favor de elegir en que evento desea registrar su correo electrónico</p>
+                                    <p class="subtitulos" style="text-align: center; margin-bottom: 30px!important;">Favor de elegir en que evento desea registrar su correo electrónico. <br />
+                                    Al hacerlo acepta explícitamente la recepción de correos acerca de nuestros eventos:
+                                    </p>
                             </div>
                             <div class="col">
                             </div>
@@ -98,8 +100,8 @@
    function save(firstName, lastName, nickName, email, eventId, country){
     swal ( "Registro" ,  "Registro con exito!" ,  "success" )
     swal({
-        title: "Aviso",
-        text: "Al registrarse a estos eventos estás aceptando explicitamente tu consentimiento para la recepción de correos electrónicos de NNI Latam a tu dirección de correo registrada acerca de estos eventos. ¿Aceptas?",
+        title: "",
+        text: "Aviso. En virtud de su participación en este evento, será necesario compartir su nombre con el organismo académico responsable, a fin de que obtenga su constancia de certificación. Es importante mencionar que la información que se comparte es pública, por lo que no requiere de su consentimiento para dicha transferencia. Si no está de acuerdo con lo anterior, le pedimos abstenerse y no registrarse ni participar en nuestros webinars o eventos. ¿Acepta?",
         icon: "warning",
         buttons: ["No", "Si"],
         dangerMode: true,
